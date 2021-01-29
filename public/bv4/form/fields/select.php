@@ -1,7 +1,8 @@
 <?php
 
+$asterix = $attribute = '';
 $name = $this->get('name');
-$id = 'ID' . $name;
+$id = !empty($id = $this->get('id')) ? $id : 'ID' . $name;
 
 if(!empty($attributes = $this->get('attributes')))
     foreach($attributes as $key => $value)
@@ -12,7 +13,7 @@ if(!empty($required = $this->get('required'))) :
     $required = 'required';
 endif;
 
-if(!empty($label = $this->get('label'))) $label = '<label for="' . $id . '">' . $label . $asterix;
+if(!empty($label = $this->get('label'))) $label = '<label for="' . $id . '">' . $label . $asterix . '</label>';
 
 $class = !empty($class = $this->get('class')) ? $class = ' ' . $class : '';
 $default_class = 'form-control';
@@ -22,7 +23,7 @@ $html = '<div class="form-group' . $class . '">' . $label
     . '<select name="' . $name . '" id="' . $id . '" class="' . $field_class . '"' . $required . $attribute . '>';
 
 if(is_array($options = $this->get('options')))
-    foreach($options as $label => $value) :
+    foreach($options as $value => $label) :
         $selected = $value == $this->get('selected_option') ? ' selected' : '';
         $html .= '<option value="' . $value . '"' . $selected . '>' . $label . '</option>';
     endforeach;

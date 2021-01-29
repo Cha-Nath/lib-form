@@ -2,7 +2,7 @@
 
 namespace Nlib\Form\Traits;
 
-use nlib\View\Classes\Form;
+use Nlib\Form\Classes\Form;
 
 trait FormTrait {
 

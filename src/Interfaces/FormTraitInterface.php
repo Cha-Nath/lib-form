@@ -2,7 +2,7 @@
 
 namespace Nlib\Form\Interfaces;
 
-use nlib\View\Classes\Form;
+use Nlib\Form\Classes\Form;
 
 interface FormTraitInterface {
 

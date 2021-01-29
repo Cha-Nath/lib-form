@@ -2,12 +2,14 @@
 
 namespace Nlib\Form\Classes;
 
-use nlib\View\Interfaces\FormInterface;
+use Nlib\Form\Interfaces\FormInterface;
+use nlib\Instance\Traits\InstanceTrait;
 use nlib\View\Traits\ViewTrait;
 
 class Form implements FormInterface {
 
     use ViewTrait;
+    use InstanceTrait;
 
     private $_version = '4';
     private $_defaults = [
@@ -32,23 +34,23 @@ class Form implements FormInterface {
     ];
 
     public function input(array $parameters) : string {
-        return $this->View($this->getPathField() . __FUNCTION__)->render(array_merge($this->getDefaults(), $parameters));
+        return $this->View($this->getPathField() . __FUNCTION__)->setAutoload(false)->render(array_merge($this->getDefaults(), $parameters));
     }
 
     public function select(array $parameters) : string {
-        return $this->View($this->getPathField() . __FUNCTION__)->render(array_merge($this->getDefaults(), $parameters));
+        return $this->View($this->getPathField() . __FUNCTION__)->setAutoload(false)->render(array_merge($this->getDefaults(), $parameters));
     }
 
     public function textarea(array $parameters) : string {
-        return $this->View($this->getPathField() . __FUNCTION__)->render(array_merge($this->getDefaults(), $parameters));
+        return $this->View($this->getPathField() . __FUNCTION__)->setAutoload(false)->render(array_merge($this->getDefaults(), $parameters));
     }
 
-    public function checbox(array $parameters) : string { 
-        return $this->View($this->getPathField() . __FUNCTION__)->render(array_merge($this->getDefaults(), $parameters));
+    public function checkbox(array $parameters) : string { 
+        return $this->View($this->getPathField() . __FUNCTION__)->setAutoload(false)->render(array_merge($this->getDefaults(), $parameters));
     }
 
     public function radio(array $parameters) : string {
-        return $this->View($this->getPathField() . __FUNCTION__)->render(array_merge($this->getDefaults(), $parameters));
+        return $this->View($this->getPathField() . __FUNCTION__)->setAutoload(false)->render(array_merge($this->getDefaults(), $parameters));
     }
 
     #region Getter

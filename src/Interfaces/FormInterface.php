@@ -30,7 +30,7 @@ interface FormInterface {
      * @param array $parameters
      * @return string
      */
-    public function checbox(array $parameters) : string;
+    public function checkbox(array $parameters) : string;
 
     /**
      *
