@@ -20,7 +20,7 @@ $default_class = 'form-control';
 $field_class = !empty($field_class = $this->get('field_class')) ? $field_class = $default_class . ' ' . $field_class : $default_class;
 
 $html = '<div class="form-group' . $class . '">' . $label
-    . '<textarea name="' . $field['name'] . '" class="' . $field_class . '" id="' . $id . '" ' . $required;
+    . '<textarea name="' . $name . '" class="' . $field_class . '" id="' . $id . '" ' . $required;
 
 if(empty($value = $this->get('value')) || is_numeric($value)) $value = '';
 if(!empty($attribute)) $html .= ' ' . $attribute;
