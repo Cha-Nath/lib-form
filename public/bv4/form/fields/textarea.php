@@ -26,6 +26,6 @@ if(empty($value = $this->get('value')) || is_numeric($value)) $value = '';
 if(!empty($attribute)) $html .= ' ' . $attribute;
 if(!empty($placeholder = $this->get('placeholder'))) $html .= ' placeholder="' . $placeholder . '"';
 
-$html .= '>' . $value . '</textarea></div';
+$html .= '>' . $value . '</textarea></div>';
 
 echo $html;
