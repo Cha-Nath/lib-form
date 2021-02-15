@@ -17,6 +17,12 @@ if(!empty($label = $this->get('label'))) $label = '<label for="' . $id . '">' . 
 
 $class = !empty($class = $this->get('class')) ? $class = ' ' . $class : '';
 $default_class = 'form-control';
+
+if(!empty($error = $this->get('error'))) :
+    $default_class .= ' is-invalid';
+    $error = '<div class="invalid-feedback">' . $error . '</div>';
+endif;
+
 $field_class = !empty($field_class = $this->get('field_class')) ? $field_class = $default_class . ' ' . $field_class : $default_class;
 
 $html = '<div class="form-group' . $class . '">' . $label
@@ -26,6 +32,6 @@ if(empty($value = $this->get('value')) || is_numeric($value)) $value = '';
 if(!empty($attribute)) $html .= ' ' . $attribute;
 if(!empty($placeholder = $this->get('placeholder'))) $html .= ' placeholder="' . $placeholder . '"';
 
-$html .= '>' . $value . '</textarea></div>';
+$html .= '>' . $value . '</textarea>' . $error . '</div>';
 
 echo $html;

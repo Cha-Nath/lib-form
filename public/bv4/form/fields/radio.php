@@ -17,6 +17,12 @@ if(!empty($label = $this->get('label'))) $label = '<label class="form-check-labe
 
 $class = !empty($class = $this->get('class')) ? $class = ' ' . $class : '';
 $default_class = 'form-check-input';
+
+if(!empty($error = $this->get('error'))) :
+    $default_class .= ' is-invalid';
+    $error = '<div class="invalid-feedback">' . $error . '</div>';
+endif;
+
 $field_class = !empty($field_class = $this->get('field_class')) ? $field_class = $default_class . ' ' . $field_class : $default_class;
 
 $html = '<div class="form-check form-check-inline' . $class . '">'
@@ -26,6 +32,6 @@ if(!empty($value = $this->get('value')) || is_numeric($value)) $html .= ' value=
 if(!empty($attribute)) $html .= ' ' . $attribute;
 if(!empty($this->get('checked'))) $html .= ' checked';
 
-$html .= ' />' . $label . '</div>';
+$html .= ' />' . $label . $error . '</div>';
 
 echo $html;
